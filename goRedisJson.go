@@ -5,7 +5,6 @@ import (
 	"fmt"
 
 	"encoding/json"
-	"github.com/go-redis/redis/v8"
 )
 
 type Author struct {
@@ -15,12 +14,6 @@ type Author struct {
 
 // from https://tutorialedge.net/golang/go-redis-tutorial/
 func RedisGoJson() {
-	client := redis.NewClient(&redis.Options{
-		Addr: "localhost:6379",
-		Password: "",
-		DB: 0,
-	})
-
 	json, err := json.Marshal(Author{Name: "Elliot", Age: 25})
 	if err != nil {
 		fmt.Println(err)
